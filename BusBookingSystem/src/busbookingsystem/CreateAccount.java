@@ -26,7 +26,13 @@ public class CreateAccount extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LblId = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblRegister = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        LblPassword = new javax.swing.JLabel();
+        IpUsername = new javax.swing.JTextField();
+        IpPassword = new javax.swing.JPasswordField();
+        LblId1 = new javax.swing.JLabel();
         LblName = new javax.swing.JLabel();
         LblUsername = new javax.swing.JLabel();
         LblPhone = new javax.swing.JLabel();
@@ -35,67 +41,180 @@ public class CreateAccount extends javax.swing.JFrame {
         IpBirthDate = new javax.swing.JTextField();
         IpName = new javax.swing.JTextField();
         IpID = new javax.swing.JTextField();
-        LblPassword = new javax.swing.JLabel();
-        IpUsername = new javax.swing.JTextField();
-        IpPassword = new javax.swing.JPasswordField();
+        BttnLogin = new javax.swing.JButton();
+        BttnCreateAccount = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        LblId.setText("ID");
-        getContentPane().add(LblId);
-        LblId.setBounds(63, 42, 31, 13);
+        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel1.setForeground(new java.awt.Color(51, 102, 255));
+        jPanel1.setToolTipText("");
 
-        LblName.setText("Name");
-        getContentPane().add(LblName);
-        LblName.setBounds(63, 81, 31, 13);
+        lblRegister.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblRegister.setForeground(new java.awt.Color(255, 255, 255));
+        lblRegister.setText("Resigter Form");
 
-        LblUsername.setText("Username");
-        getContentPane().add(LblUsername);
-        LblUsername.setBounds(63, 181, 76, 22);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addComponent(lblRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(167, 167, 167))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(lblRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
+        );
 
-        LblPhone.setText("Phone number");
-        LblPhone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(LblPhone);
-        LblPhone.setBounds(63, 117, 70, 13);
-
-        LblBirthDate.setText("Birth Date");
-        getContentPane().add(LblBirthDate);
-        LblBirthDate.setBounds(63, 150, 60, 13);
-        getContentPane().add(IpPhone);
-        IpPhone.setBounds(210, 120, 55, 19);
-        getContentPane().add(IpBirthDate);
-        IpBirthDate.setBounds(210, 150, 55, 19);
-
-        IpName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IpNameActionPerformed(evt);
-            }
-        });
-        getContentPane().add(IpName);
-        IpName.setBounds(210, 80, 55, 19);
-
-        IpID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IpIDActionPerformed(evt);
-            }
-        });
-        getContentPane().add(IpID);
-        IpID.setBounds(210, 40, 55, 19);
-
+        LblPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         LblPassword.setText("Password");
-        getContentPane().add(LblPassword);
-        LblPassword.setBounds(60, 220, 61, 24);
 
         IpUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IpUsernameActionPerformed(evt);
             }
         });
-        getContentPane().add(IpUsername);
-        IpUsername.setBounds(200, 190, 83, 19);
-        getContentPane().add(IpPassword);
-        IpPassword.setBounds(200, 230, 83, 20);
+
+        LblId1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LblId1.setText("ID");
+
+        LblName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LblName.setText("Name");
+
+        LblUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LblUsername.setText("Username");
+
+        LblPhone.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LblPhone.setText("Phone number");
+        LblPhone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        LblBirthDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LblBirthDate.setText("Birth Date");
+
+        IpName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IpNameActionPerformed(evt);
+            }
+        });
+
+        IpID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IpIDActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(LblId1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(105, 105, 105)
+                        .addComponent(IpID, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LblPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LblName, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(IpName)
+                            .addComponent(IpPhone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(LblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(IpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(LblBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(45, 45, 45)
+                            .addComponent(IpBirthDate))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(LblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(23, 23, 23)
+                            .addComponent(IpUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(319, 319, 319))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(IpID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LblId1))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(IpName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LblName))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblPhone)
+                    .addComponent(IpPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(IpBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LblBirthDate))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IpUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        BttnLogin.setText("already have account ? Login");
+        BttnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BttnLoginActionPerformed(evt);
+            }
+        });
+
+        BttnCreateAccount.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        BttnCreateAccount.setText("Create Account");
+        BttnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BttnCreateAccountActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BttnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(BttnLogin))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(BttnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(BttnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -111,6 +230,14 @@ public class CreateAccount extends javax.swing.JFrame {
     private void IpUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IpUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_IpUsernameActionPerformed
+
+    private void BttnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnCreateAccountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BttnCreateAccountActionPerformed
+
+    private void BttnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnLoginActionPerformed
+
+    }//GEN-LAST:event_BttnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,6 +275,8 @@ public class CreateAccount extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BttnCreateAccount;
+    private javax.swing.JButton BttnLogin;
     private javax.swing.JTextField IpBirthDate;
     private javax.swing.JTextField IpID;
     private javax.swing.JTextField IpName;
@@ -155,10 +284,13 @@ public class CreateAccount extends javax.swing.JFrame {
     private javax.swing.JTextField IpPhone;
     private javax.swing.JTextField IpUsername;
     private javax.swing.JLabel LblBirthDate;
-    private javax.swing.JLabel LblId;
+    private javax.swing.JLabel LblId1;
     private javax.swing.JLabel LblName;
     private javax.swing.JLabel LblPassword;
     private javax.swing.JLabel LblPhone;
     private javax.swing.JLabel LblUsername;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblRegister;
     // End of variables declaration//GEN-END:variables
 }

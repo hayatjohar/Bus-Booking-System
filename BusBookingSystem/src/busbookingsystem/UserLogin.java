@@ -27,7 +27,6 @@ public class UserLogin extends javax.swing.JFrame {
         BttnReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         BttnLogin.setText("Login");
         BttnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -35,26 +34,16 @@ public class UserLogin extends javax.swing.JFrame {
                 BttnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(BttnLogin);
-        BttnLogin.setBounds(102, 190, 57, 21);
 
         IpUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IpUsernameActionPerformed(evt);
             }
         });
-        getContentPane().add(IpUsername);
-        IpUsername.setBounds(200, 64, 83, 19);
 
         LblPassword.setText("Password");
-        getContentPane().add(LblPassword);
-        LblPassword.setBounds(83, 136, 61, 24);
 
         LblUsername.setText("Username");
-        getContentPane().add(LblUsername);
-        LblUsername.setBounds(83, 68, 76, 22);
-        getContentPane().add(IpPassword);
-        IpPassword.setBounds(201, 136, 83, 19);
 
         BttnCreateAccount.setText("Create Account");
         BttnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
@@ -62,21 +51,71 @@ public class UserLogin extends javax.swing.JFrame {
                 BttnCreateAccountActionPerformed(evt);
             }
         });
-        getContentPane().add(BttnCreateAccount);
-        BttnCreateAccount.setBounds(116, 229, 103, 21);
 
+        LblUserLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         LblUserLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblUserLogin.setText("User Login");
         LblUserLogin.setToolTipText("");
         LblUserLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         LblUserLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         LblUserLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(LblUserLogin);
-        LblUserLogin.setBounds(83, 17, 200, 21);
 
         BttnReset.setText("Reset");
-        getContentPane().add(BttnReset);
-        BttnReset.setBounds(200, 190, 59, 21);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(BttnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                            .addComponent(LblUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(BttnReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(IpUsername))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LblUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(IpPassword)))
+                .addGap(70, 70, 70))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(BttnCreateAccount)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(LblUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(LblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IpUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BttnLogin)
+                    .addComponent(BttnReset))
+                .addGap(18, 18, 18)
+                .addComponent(BttnCreateAccount)
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
