@@ -9,7 +9,7 @@ package bus.booking.system;
  * @author bassamphone
  */
 public class UserLogin extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form s
      */
@@ -157,7 +157,12 @@ public class UserLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BttnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnLoginActionPerformed
-
+        UserLogin user = new UserLogin();
+        AdminForm form = new AdminForm();
+        if( (IpUsername.getText()).equals("admin") && (IpPassword.getText()).equals("admin") ){
+            form.show(); // show dmin form
+            dispose(); // hide this form
+         }
     }//GEN-LAST:event_BttnLoginActionPerformed
 
     private void IpUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IpUsernameActionPerformed
