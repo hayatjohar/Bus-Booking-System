@@ -249,7 +249,9 @@ public class CreateAccounts extends javax.swing.JFrame {
     }//GEN-LAST:event_IpNameActionPerformed
 
     private void BttnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnLoginActionPerformed
-
+        UserLogin LoginPage = new UserLogin();
+        LoginPage.setVisible(true); // Go to Login page
+        dispose(); // hide this page
     }//GEN-LAST:event_BttnLoginActionPerformed
 
     private void BttnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnCreateAccountActionPerformed

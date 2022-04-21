@@ -157,10 +157,9 @@ public class UserLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BttnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnLoginActionPerformed
-        UserLogin user = new UserLogin();
-        AdminForm form = new AdminForm();
+          AdminForm AdminPage = new AdminForm();
         if( (IpUsername.getText()).equals("admin") && (IpPassword.getText()).equals("admin") ){
-            form.show(); // show dmin form
+            AdminPage.show(); // show admin page
             dispose(); // hide this form
          }
     }//GEN-LAST:event_BttnLoginActionPerformed
@@ -170,7 +169,9 @@ public class UserLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_IpUsernameActionPerformed
 
     private void BttnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnCreateAccountActionPerformed
-        // TODO add your handling code here:
+        CreateAccounts CreatePage = new CreateAccounts();
+        CreatePage.setVisible(true); // Go to Create account page
+        dispose(); // hide this page
     }//GEN-LAST:event_BttnCreateAccountActionPerformed
 
     /**
