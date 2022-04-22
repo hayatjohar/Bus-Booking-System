@@ -156,10 +156,10 @@
                                   <Component id="LblBirthDate" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="IpBirthDate" min="-2" pref="98" max="-2" attributes="0"/>
-                                  <Component id="IpPhone" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="IpUsername" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="IpPhone" pref="100" max="32767" attributes="0"/>
+                                  <Component id="IpUsername" alignment="0" pref="100" max="32767" attributes="0"/>
+                                  <Component id="IpDate" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -181,9 +181,9 @@
                           <Component id="IpPhone" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="LblBirthDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IpBirthDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="LblBirthDate" min="-2" max="-2" attributes="0"/>
+                          <Component id="IpDate" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -251,14 +251,14 @@
             </Component>
             <Component class="javax.swing.JTextField" name="IpPhone">
             </Component>
-            <Component class="javax.swing.JTextField" name="IpBirthDate">
-            </Component>
             <Component class="javax.swing.JTextField" name="IpName">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IpNameActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="IpPassword">
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="IpDate">
             </Component>
           </SubComponents>
         </Container>

@@ -4,6 +4,8 @@
  */
 package BusBookingSystem;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author bassamphone
@@ -37,9 +39,9 @@ public class CreateAccounts extends javax.swing.JFrame {
         LblPhone = new javax.swing.JLabel();
         LblBirthDate = new javax.swing.JLabel();
         IpPhone = new javax.swing.JTextField();
-        IpBirthDate = new javax.swing.JTextField();
         IpName = new javax.swing.JTextField();
         IpPassword = new javax.swing.JPasswordField();
+        IpDate = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
         BttnCreateAccount = new javax.swing.JButton();
         BttnLogin = new javax.swing.JButton();
@@ -127,10 +129,10 @@ public class CreateAccounts extends javax.swing.JFrame {
                             .addComponent(LblPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LblBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IpBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IpPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IpUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(IpPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(IpUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(IpDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(319, 319, 319))
         );
         jPanel2Layout.setVerticalGroup(
@@ -145,9 +147,9 @@ public class CreateAccounts extends javax.swing.JFrame {
                     .addComponent(LblPhone)
                     .addComponent(IpPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LblBirthDate)
-                    .addComponent(IpBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,7 +257,26 @@ public class CreateAccounts extends javax.swing.JFrame {
     }//GEN-LAST:event_BttnLoginActionPerformed
 
     private void BttnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnCreateAccountActionPerformed
-        // TODO add your handling code here:
+
+            if("".contains(IpName.getText()) ||
+               "".contains(IpPhone.getText()) ||
+               "".contains(IpUsername.getText()) ||
+               "".contains(IpPassword.getText()) ||
+               IpDate.getDate() == null){
+                JOptionPane.showMessageDialog(null, "can't Register with null values");
+            }else{
+                try{
+                    // Data base work here
+                    int phone_number = Integer.parseInt(IpPhone.getText());
+                    JOptionPane.showMessageDialog(null, "Register successfully");
+                    UserLogin LoginPage = new UserLogin();
+                    LoginPage.setVisible(true); // Go to Login page
+                    dispose(); // hide this page
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Add integer value for Phone number");
+                }
+
+            }
     }//GEN-LAST:event_BttnCreateAccountActionPerformed
 
     /**
@@ -296,7 +317,7 @@ public class CreateAccounts extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BttnCreateAccount;
     private javax.swing.JButton BttnLogin;
-    private javax.swing.JTextField IpBirthDate;
+    private com.toedter.calendar.JDateChooser IpDate;
     private javax.swing.JTextField IpName;
     private javax.swing.JPasswordField IpPassword;
     private javax.swing.JTextField IpPhone;

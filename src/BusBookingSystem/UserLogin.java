@@ -4,6 +4,8 @@
  */
 package BusBookingSystem;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author bassamphone
@@ -158,10 +160,15 @@ public class UserLogin extends javax.swing.JFrame {
 
     private void BttnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnLoginActionPerformed
           AdminForm AdminPage = new AdminForm();
-        if( (IpUsername.getText()).equals("admin") && (IpPassword.getText()).equals("admin") ){
-            AdminPage.show(); // show admin page
-            dispose(); // hide this form
-         }
+          if("".contains(IpUsername.getText()) || "".contains(IpPassword.getText())){
+                JOptionPane.showMessageDialog(null, "can't Login with null values");
+          }else if( (IpUsername.getText()).equals("admin") && (IpPassword.getText()).equals("admin") ){
+                AdminPage.show(); // show admin page
+                dispose(); // hide this form
+         }else{
+              // Data base work here 
+                JOptionPane.showMessageDialog(null, "Login from database");
+          }
     }//GEN-LAST:event_BttnLoginActionPerformed
 
     private void IpUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IpUsernameActionPerformed
