@@ -38,9 +38,9 @@ public class AdminForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(213, Short.MAX_VALUE)
+                .addContainerGap(212, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
