@@ -5,6 +5,7 @@
 package BusBookingSystem;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
@@ -285,23 +286,29 @@ public class CreateAccounts extends javax.swing.JFrame {
         } else {
             try {
                 int phone_number = Integer.parseInt(IpPhone.getText());
-                try {
+                try {                                   
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem", "root", "");
-                    String sql = "INSERT INTO test(username, password) VALUES (?,?)";
+                    var sql = "INSERT INTO `customer-table` (`customer-id`, `customer-name`, `phone-number`, `birth-date`, `username`, `password`) VALUES (null,?,?,?,?,?)";
                     PreparedStatement stmt = con.prepareStatement(sql);
-                    stmt.setString(1, IpUsername.getText());
-                    stmt.setString(2, IpPassword.getText());
+                    stmt.setString(1, IpName.getText());
+                    stmt.setString(2, IpPhone.getText());
+                        System.out.println(IpDate.getDate());
+                        java.sql.Date sqlDate = new java.sql.Date((IpDate.getDate()).getTime()); // convert from java date to sql date
+                        System.out.println(sqlDate);
+                    stmt.setDate(3, sqlDate);
+                    stmt.setString(4, IpUsername.getText());
+                    stmt.setString(5, IpPassword.getText());
                     //ResultSet rs = stmt.executeQuery();
                     stmt.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Registered successfully");
                     UserLogin LoginPage = new UserLogin();
                     LoginPage.setVisible(true); // Go to Login page
                     dispose(); // hide this page
-
                     con.close();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e);
+                    System.out.println(e);
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Add integer value for Phone number");
