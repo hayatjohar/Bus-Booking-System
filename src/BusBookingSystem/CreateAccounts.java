@@ -277,10 +277,10 @@ public class CreateAccounts extends javax.swing.JFrame {
     }//GEN-LAST:event_BttnLoginActionPerformed
 
     private void BttnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnCreateAccountActionPerformed
-        if ("".contains(IpName.getText())
-                || "".contains(IpPhone.getText())
-                || "".contains(IpUsername.getText())
-                || "".contains(IpPassword.getText())
+        if ((IpName.getText().trim().isEmpty())
+                || (IpPhone.getText().trim().isEmpty())
+                || (IpUsername.getText().trim().isEmpty())
+                || (IpPassword.getText().trim().isEmpty())
                 || IpDate.getDate() == null) {
             JOptionPane.showMessageDialog(null, "can't Register with null values");
         } else {
@@ -291,8 +291,8 @@ public class CreateAccounts extends javax.swing.JFrame {
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem", "root", "");
                     var sql = "INSERT INTO `customer-table` (`customer-id`, `customer-name`, `phone-number`, `birth-date`, `username`, `password`) VALUES (null,?,?,?,?,?)";
                     PreparedStatement stmt = con.prepareStatement(sql);
-                    stmt.setString(1, IpName.getText());
-                    stmt.setString(2, IpPhone.getText());
+                    stmt.setString(1, IpName.getText().trim());
+                    stmt.setString(2, IpPhone.getText().trim());
                         System.out.println(IpDate.getDate());
                         java.sql.Date sqlDate = new java.sql.Date((IpDate.getDate()).getTime()); // convert from java date to sql date
                         System.out.println(sqlDate);

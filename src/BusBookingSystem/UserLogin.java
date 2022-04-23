@@ -181,8 +181,8 @@ public class UserLogin extends javax.swing.JFrame {
                     Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
                     String sql = "SELECT * FROM `customer-table` WHERE username =? AND password=?";
                     PreparedStatement stmt=con.prepareStatement(sql);
-                    stmt.setString(1,IpUsername.getText());
-                    stmt.setString(2,IpPassword.getText());
+                    stmt.setString(1,IpUsername.getText().trim());
+                    stmt.setString(2,IpPassword.getText().trim());
                     ResultSet rs = stmt.executeQuery();
                     if(rs.next()){
                         JOptionPane.showMessageDialog(null,"Username and Password Matched");
