@@ -21,6 +21,8 @@ public class CreateAccounts extends javax.swing.JFrame {
      */
     public CreateAccounts() {
         initComponents();
+        this.setResizable(false);
+
     }
 
     /**

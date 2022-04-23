@@ -22,6 +22,8 @@ public class UserLogin extends javax.swing.JFrame {
      */
     public UserLogin() {
         initComponents();
+        this.setResizable(false);
+
     }
 
     /**
