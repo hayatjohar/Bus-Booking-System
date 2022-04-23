@@ -8,7 +8,6 @@ package BusBookingSystem;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -171,12 +170,11 @@ public class UserLogin extends javax.swing.JFrame {
           }else if( (IpUsername.getText()).equals("admin") && (IpPassword.getText()).equals("admin") ){
                 AdminPage.show(); // show admin page
                 dispose(); // hide this form
-         }else{
-          
+         }else{      
                 try{
-                    Class.forName("com.mysql.jdbc.Driver");
-                    Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/test1","root","");
-                    String sql = "select * from user where username=? and password=?";
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
+                    String sql = "SELECT * FROM `test` WHERE username =? AND password=?";
                     PreparedStatement stmt=con.prepareStatement(sql);
                     stmt.setString(1,IpUsername.getText());
                     stmt.setString(2,IpPassword.getText());
@@ -191,7 +189,7 @@ public class UserLogin extends javax.swing.JFrame {
                 }
                 
                 catch(Exception e){
-                    JOptionPane.showMessageDialog(null, "Add integer value for Phone number");
+                    JOptionPane.showMessageDialog(null, "Error in connection with Data Base");
                 }
           }
     }//GEN-LAST:event_BttnLoginActionPerformed

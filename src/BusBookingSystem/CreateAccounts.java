@@ -7,9 +7,7 @@ package BusBookingSystem;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-
 
 /**
  *
@@ -262,45 +260,38 @@ public class CreateAccounts extends javax.swing.JFrame {
     }//GEN-LAST:event_BttnLoginActionPerformed
 
     private void BttnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnCreateAccountActionPerformed
-
-            if("".contains(IpName.getText()) ||
-               "".contains(IpPhone.getText()) ||
-               "".contains(IpUsername.getText()) ||
-               "".contains(IpPassword.getText()) ||
-               IpDate.getDate() == null){
-                JOptionPane.showMessageDialog(null, "can't Register with null values");
-            }else{
-                try{
-                     try{
-                    PreparedStatement stmt;
-                    String sql = "insert into `user` (`password`, `username`) values (?,?)";
-                    stmt = MyConnection.getConnection().prepareStatment(sql);
-                    
-
-                    stmt.setString(1,IpUsername.getText());
-                    stmt.setString(2,IpPassword.getText());
-                    ResultSet rs = stmt.executeQuery();
-                    if(stmt.executeUpdate()>0 ){
-                        JOptionPane.showMessageDialog(null,"Registered");
-                    }
-                   
-                    con.close();
-                }
-                
-                catch(Exception e){
-                    JOptionPane.showMessageDialog(null, " ");
-                }
-                    // Data base work here
-                    int phone_number = Integer.parseInt(IpPhone.getText());
-                    
+        if ("".contains(IpName.getText())
+                || "".contains(IpPhone.getText())
+                || "".contains(IpUsername.getText())
+                || "".contains(IpPassword.getText())
+                || IpDate.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "can't Register with null values");
+        } else {
+            try {
+                int phone_number = Integer.parseInt(IpPhone.getText());
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem", "root", "");
+                    String sql = "INSERT INTO test(username, password) VALUES (?,?)";
+                    PreparedStatement stmt = con.prepareStatement(sql);
+                    stmt.setString(1, IpUsername.getText());
+                    stmt.setString(2, IpPassword.getText());
+                    //ResultSet rs = stmt.executeQuery();
+                    stmt.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "Registered successfully");
                     UserLogin LoginPage = new UserLogin();
                     LoginPage.setVisible(true); // Go to Login page
                     dispose(); // hide this page
-                }catch(Exception e){
-                    JOptionPane.showMessageDialog(null, "Add integer value for Phone number");
-                }
 
+                    //con.close();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Add integer value for Phone number");
             }
+
+        }
     }//GEN-LAST:event_BttnCreateAccountActionPerformed
 
     /**
