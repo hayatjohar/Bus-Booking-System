@@ -96,6 +96,11 @@ public class UserLogin extends javax.swing.JFrame {
         });
 
         BttnReset.setText("Reset");
+        BttnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BttnResetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -187,9 +192,8 @@ public class UserLogin extends javax.swing.JFrame {
                     }
                     con.close();
                 }
-                
                 catch(Exception e){
-                    JOptionPane.showMessageDialog(null, "Error in connection with Data Base");
+                    JOptionPane.showMessageDialog(null, e);
                 }
           }
     }//GEN-LAST:event_BttnLoginActionPerformed
@@ -203,6 +207,11 @@ public class UserLogin extends javax.swing.JFrame {
         CreatePage.setVisible(true); // Go to Create account page
         dispose(); // hide this page
     }//GEN-LAST:event_BttnCreateAccountActionPerformed
+
+    private void BttnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnResetActionPerformed
+        IpUsername.setText("");
+        IpPassword.setText("");
+    }//GEN-LAST:event_BttnResetActionPerformed
 
     /**
      * @param args the command line arguments

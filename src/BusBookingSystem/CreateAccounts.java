@@ -48,6 +48,7 @@ public class CreateAccounts extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         BttnCreateAccount = new javax.swing.JButton();
         BttnLogin = new javax.swing.JButton();
+        BttnReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -179,6 +180,13 @@ public class CreateAccounts extends javax.swing.JFrame {
             }
         });
 
+        BttnReset.setText("Reset");
+        BttnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BttnResetActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -186,12 +194,18 @@ public class CreateAccounts extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BttnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(BttnLogin)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(BttnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(BttnLogin)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BttnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +214,9 @@ public class CreateAccounts extends javax.swing.JFrame {
                 .addComponent(BttnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BttnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(BttnReset, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -283,7 +299,7 @@ public class CreateAccounts extends javax.swing.JFrame {
                     LoginPage.setVisible(true); // Go to Login page
                     dispose(); // hide this page
 
-                    //con.close();
+                    con.close();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
@@ -293,6 +309,14 @@ public class CreateAccounts extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_BttnCreateAccountActionPerformed
+
+    private void BttnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnResetActionPerformed
+        IpPhone.setText("");
+        IpUsername.setText("");
+        IpPassword.setText("");
+        IpName.setText("");
+        IpDate.setDate(null);
+    }//GEN-LAST:event_BttnResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,6 +356,7 @@ public class CreateAccounts extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BttnCreateAccount;
     private javax.swing.JButton BttnLogin;
+    private javax.swing.JButton BttnReset;
     private com.toedter.calendar.JDateChooser IpDate;
     private javax.swing.JTextField IpName;
     private javax.swing.JPasswordField IpPassword;
