@@ -182,18 +182,35 @@ public class UserLogin extends javax.swing.JFrame {
                 try{
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
-                    String sql = "SELECT * FROM `bus-table`";
-                    PreparedStatement stmt=con.prepareStatement(sql);
-                    ResultSet rs = stmt.executeQuery();
-                    while(rs.next()){
-                        String bus_id = String.valueOf(rs.getInt("bus-id"));
-                        String plate_number = rs.getString("plate-number");
-                        String type = rs.getString("bus-type");
-                        String total_seats = String.valueOf(rs.getInt("total-seats"));
-                        String driver_id = String.valueOf(rs.getInt("driver-id"));
-                        String tbData[] = {bus_id,plate_number,type,total_seats,driver_id};
+                    // Bus Table
+                    String sql1 = "SELECT * FROM `bus-table`";
+                    PreparedStatement table1=con.prepareStatement(sql1);
+                    ResultSet resultTable1 = table1.executeQuery();
+                    while(resultTable1.next()){
+                        String bus_id = String.valueOf(resultTable1.getInt("bus-id"));
+                        String plate_number = resultTable1.getString("plate-number");
+                        String type = resultTable1.getString("bus-type");
+                        String total_seats = String.valueOf(resultTable1.getInt("total-seats"));
+                        String driver_id = String.valueOf(resultTable1.getInt("driver-id"));
+                        
+                        String busData[] = {bus_id,plate_number,type,total_seats,driver_id};
                         DefaultTableModel tblModel = (DefaultTableModel)AdminPage.BusTable.getModel();
-                        tblModel.addRow(tbData);
+                        tblModel.addRow(busData);
+                       
+                        // Customer Table
+                        String sql2 = "SELECT * FROM `customer-table`";
+                        PreparedStatement table2=con.prepareStatement(sql2);
+                        ResultSet resultTable2 = table1.executeQuery();
+                        String customer_id = String.valueOf(resultTable2.getInt("customer-id"));
+                        String customer_name = resultTable2.getString("customer-name");
+                        String password = resultTable2.getString("password");
+                        String username = resultTable2.getString("username");
+                        String phone_number = String.valueOf(resultTable2.getInt("phone-number"));
+                        String Birth_date = String.valueOf(resultTable2.getDate("birth-date"));
+                        
+                        String customerData[] = {customer_id,customer_name,phone_number,Birth_date,username,password};
+                        DefaultTableModel tblModel = (DefaultTableModel)AdminPage.CustomerTable.getModel();
+                        tblModel.addRow(customerData);
                     }
                 }catch(Exception e){
                     JOptionPane.showMessageDialog(null, e);
