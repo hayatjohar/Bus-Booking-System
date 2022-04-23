@@ -18,13 +18,13 @@ public class AdminFram extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         BusTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        CustomerTable = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        DriverTable = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        BookingTable = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        Travel_ScheduleTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,7 +38,7 @@ public class AdminFram extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(BusTable);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        CustomerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -46,9 +46,9 @@ public class AdminFram extends javax.swing.JFrame {
                 "Customer ID", "Customer Name", "Phone Number", "Birth Date", "Username", "Password"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(CustomerTable);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        DriverTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -56,9 +56,9 @@ public class AdminFram extends javax.swing.JFrame {
                 "Driver ID", "Driver Name", "Driver Phone"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(DriverTable);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        BookingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -66,17 +66,17 @@ public class AdminFram extends javax.swing.JFrame {
                 "Booking ID", "Customer ID", "Customer Name", "Seat Number", "Paid"
             }
         ));
-        jScrollPane4.setViewportView(jTable3);
+        jScrollPane4.setViewportView(BookingTable);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        Travel_ScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Bus ID", "Starting Point", "Destination", "Depart Date", "Remaining Seats", "Ticket Price"
+                "Bus ID", "Starting Point", "Destination", "Depart Time", "Depart Date", "Remaining Seats", "Ticket Price"
             }
         ));
-        jScrollPane5.setViewportView(jTable4);
+        jScrollPane5.setViewportView(Travel_ScheduleTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,15 +151,15 @@ public class AdminFram extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTable BookingTable;
     public javax.swing.JTable BusTable;
+    public javax.swing.JTable CustomerTable;
+    public javax.swing.JTable DriverTable;
+    public javax.swing.JTable Travel_ScheduleTable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     // End of variables declaration//GEN-END:variables
 }
