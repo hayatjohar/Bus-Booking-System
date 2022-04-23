@@ -4,7 +4,12 @@
  */
 package BusBookingSystem;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -266,9 +271,28 @@ public class CreateAccounts extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "can't Register with null values");
             }else{
                 try{
+                     try{
+                    PreparedStatement stmt;
+                    String sql = "insert into `user` (`password`, `username`) values (?,?)";
+                    stmt = MyConnection.getConnection().prepareStatment(sql);
+                    
+
+                    stmt.setString(1,IpUsername.getText());
+                    stmt.setString(2,IpPassword.getText());
+                    ResultSet rs = stmt.executeQuery();
+                    if(stmt.executeUpdate()>0 ){
+                        JOptionPane.showMessageDialog(null,"Registered");
+                    }
+                   
+                    con.close();
+                }
+                
+                catch(Exception e){
+                    JOptionPane.showMessageDialog(null, " ");
+                }
                     // Data base work here
                     int phone_number = Integer.parseInt(IpPhone.getText());
-                    JOptionPane.showMessageDialog(null, "Register successfully");
+                    
                     UserLogin LoginPage = new UserLogin();
                     LoginPage.setVisible(true); // Go to Login page
                     dispose(); // hide this page

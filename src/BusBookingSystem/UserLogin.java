@@ -4,7 +4,13 @@
  */
 package BusBookingSystem;
 
+
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -166,8 +172,27 @@ public class UserLogin extends javax.swing.JFrame {
                 AdminPage.show(); // show admin page
                 dispose(); // hide this form
          }else{
-              // Data base work here 
-                JOptionPane.showMessageDialog(null, "Login from database");
+          
+                try{
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/test1","root","");
+                    String sql = "select * from user where username=? and password=?";
+                    PreparedStatement stmt=con.prepareStatement(sql);
+                    stmt.setString(1,IpUsername.getText());
+                    stmt.setString(2,IpPassword.getText());
+                    ResultSet rs = stmt.executeQuery();
+                    if(rs.next()){
+                        JOptionPane.showMessageDialog(null,"Username and Password Matched");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"Username and Password Do Not Matched");
+                    }
+                    con.close();
+                }
+                
+                catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Add integer value for Phone number");
+                }
           }
     }//GEN-LAST:event_BttnLoginActionPerformed
 
