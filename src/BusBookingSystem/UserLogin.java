@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -171,12 +172,33 @@ public class UserLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BttnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnLoginActionPerformed
-          AdminForm AdminPage = new AdminForm();
+          AdminFram AdminPage = new AdminFram();
           if("".contains(IpUsername.getText()) || "".contains(IpPassword.getText())){
                 JOptionPane.showMessageDialog(null, "can't Login with null values");
           }else if( (IpUsername.getText()).equals("admin") && (IpPassword.getText()).equals("admin") ){
+                
                 AdminPage.show(); // show admin page
                 dispose(); // hide this form
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
+                    String sql = "SELECT * FROM `bus-table`";
+                    PreparedStatement stmt=con.prepareStatement(sql);
+                    ResultSet rs = stmt.executeQuery();
+                    while(rs.next()){
+                        String bus_id = String.valueOf(rs.getInt("bus-id"));
+                        String plate_number = rs.getString("plate-number");
+                        String type = rs.getString("bus-type");
+                        String total_seats = String.valueOf(rs.getInt("total-seats"));
+                        String driver_id = String.valueOf(rs.getInt("driver-id"));
+                        String tbData[] = {bus_id,plate_number,type,total_seats,driver_id};
+                        DefaultTableModel tblModel = (DefaultTableModel)AdminPage.BusTable.getModel();
+                        tblModel.addRow(tbData);
+                    }
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                
          }else{      
                 try{
                     Class.forName("com.mysql.cj.jdbc.Driver");
