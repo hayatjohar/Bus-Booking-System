@@ -306,7 +306,7 @@ public class CreateAccounts extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Registered successfully");
                     UserLogin LoginPage = new UserLogin();
                     LoginPage.setVisible(true); // Go to Login page
-                    dispose(); // hide this page
+                    this.setVisible(false);// hide this page
                     con.close();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e);

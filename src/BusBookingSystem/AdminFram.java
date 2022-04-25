@@ -9,6 +9,7 @@ public class AdminFram extends javax.swing.JFrame {
   
     public AdminFram() {
         initComponents();
+        this.setResizable(false);
     }
 
     @SuppressWarnings("unchecked")

@@ -173,12 +173,12 @@ public class UserLogin extends javax.swing.JFrame {
 
     private void BttnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnLoginActionPerformed
           AdminFram AdminPage = new AdminFram();
-          if("".contains(IpUsername.getText()) || "".contains(IpPassword.getText())){
+          if(IpUsername.getText().trim().isEmpty() || IpPassword.getText().trim().isEmpty()){
                 JOptionPane.showMessageDialog(null, "can't Login with null values");
-          }else if( (IpUsername.getText()).equals("admin") && (IpPassword.getText()).equals("admin") ){
+          }else if( IpUsername.getText().trim().contains("admin") &&  IpPassword.getText().trim().contains("admin") ){
                 
-                AdminPage.show(); // show admin page
-                dispose(); // hide this form
+                AdminPage.setVisible(true); // show admin page
+                this.setVisible(false); // hide this form
                 try{
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
@@ -273,10 +273,15 @@ public class UserLogin extends javax.swing.JFrame {
                     stmt.setString(2,IpPassword.getText().trim());
                     ResultSet rs = stmt.executeQuery();
                     if(rs.next()){
-                        JOptionPane.showMessageDialog(null,"Username and Password Matched");
+                        JOptionPane.showMessageDialog(null,"Login successfully");
+                        AddBooking user = new AddBooking();
+                        user.setVisible(true); // go to add booking page
+                        this.setVisible(false); // hide this page
+                        String customer_name = rs.getString("customer-name");
+                        user.user_name.setText(customer_name);
                     }
                     else{
-                        JOptionPane.showMessageDialog(null,"Username and Password Do Not Matched");
+                        JOptionPane.showMessageDialog(null,"Login failed\nUsername\\Password does not correct");
                     }
                     con.close();
                 }
