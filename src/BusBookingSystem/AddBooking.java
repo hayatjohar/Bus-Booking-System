@@ -47,7 +47,7 @@ public class AddBooking extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         Travel_ScheduleTable = new javax.swing.JTable();
         BttnSearch = new javax.swing.JButton();
-        DepartTime = new cambodia.raven.Time();
+        DepartTime = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         Travel_Schedule_ListTable = new javax.swing.JTable();
@@ -112,9 +112,6 @@ public class AddBooking extends javax.swing.JFrame {
             }
         });
 
-        DepartTime.setMaximumSize(new java.awt.Dimension(100, 70));
-        DepartTime.setMinimumSize(new java.awt.Dimension(100, 70));
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -140,9 +137,9 @@ public class AddBooking extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel4))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DepartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Distination, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Distination, 0, 95, Short.MAX_VALUE)
+                                    .addComponent(DepartTime)))
                             .addComponent(BttnSearch))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -156,19 +153,18 @@ public class AddBooking extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(Distination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(DepartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(31, 31, 31)
-                        .addComponent(BttnSearch)
-                        .addGap(9, 9, 9))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(DepartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(DepartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(DepartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(25, 25, 25)
+                .addComponent(BttnSearch)
+                .addGap(9, 9, 9)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -199,7 +195,7 @@ public class AddBooking extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -286,7 +282,7 @@ public class AddBooking extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 525, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 751, Short.MAX_VALUE)
                         .addComponent(BttnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24))))
         );
@@ -299,12 +295,12 @@ public class AddBooking extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BttnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 17, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1206, 519));
+        setSize(new java.awt.Dimension(1429, 531));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -322,22 +318,23 @@ public class AddBooking extends javax.swing.JFrame {
         try{
             String Starting = StartringPoint.getSelectedItem().toString();
             String destination = Distination.getSelectedItem().toString();
-            String time = DepartTime.getText().substring(0,5).concat(":00.000000");
+            
             java.sql.Date sqlDate = new java.sql.Date((DepartDate.getDate()).getTime()); // convert from java date to sql date
             try{
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
-                String sql = "SELECT * FROM `travel-schedule-table` WHERE `starting-point`=? AND `destination`=? AND `depart-date`=?";
+                String sql = "SELECT * FROM `travel-schedule-table` WHERE `starting-point`=? AND `destination`=? AND `depart-date`=? AND `depart-time`=?";
                 PreparedStatement stmt=con.prepareStatement(sql);
                 stmt.setString(1, Starting);
                 stmt.setString(2, destination);
                 stmt.setDate(3, sqlDate);
+                stmt.setString(4, DepartTime.getText());
                 ResultSet resultTable = stmt.executeQuery();
                 while(resultTable.next()){
                             String bus_id = String.valueOf(resultTable.getInt("bus-id"));
                             String starting_point = resultTable.getString("starting-point");
                             String ddestination = resultTable.getString("destination");
-                            String depart_time = String.valueOf(resultTable.getTime("depart-time"));
+                            String depart_time = resultTable.getString("depart-time");
                             String depart_date = String.valueOf(resultTable.getDate("depart-date"));
                             String remaining_seats = String.valueOf(resultTable.getInt("remaining-seats"));
                             String ticket_price =  String.valueOf(resultTable.getInt("ticket-price"));
@@ -401,7 +398,7 @@ public class AddBooking extends javax.swing.JFrame {
     private javax.swing.JButton BttnLogout;
     private javax.swing.JButton BttnSearch;
     private com.toedter.calendar.JDateChooser DepartDate;
-    private cambodia.raven.Time DepartTime;
+    private javax.swing.JTextField DepartTime;
     private javax.swing.JComboBox<String> Distination;
     private javax.swing.JComboBox<String> StartringPoint;
     public javax.swing.JTable Travel_ScheduleTable;
