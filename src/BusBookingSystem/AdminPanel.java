@@ -306,7 +306,7 @@ public class AdminPanel extends javax.swing.JFrame {
             try{
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem", "root", "");
-                String sql = "INSERT INTO `bus-table ` (`bus-id`, `bus-type`, `driver-name`, `plate-no`, `total-seats`) VALUES (?,?,?,?,?)";
+                String sql = "INSERT INTO `bus-table` (`bus-id`, `bus-type`, `driver-name`, `plate-no`, `total-seats`) VALUES (?,?,?,?,?)";
                 PreparedStatement stmt = con.prepareStatement(sql);
                 stmt.setInt(1,busID);
                 stmt.setString(2,bus_type.getText().trim());
