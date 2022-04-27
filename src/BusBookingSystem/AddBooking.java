@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -353,14 +354,16 @@ public class AddBooking extends javax.swing.JFrame {
     }//GEN-LAST:event_BttnSearchActionPerformed
 
     private void Travel_ScheduleTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Travel_ScheduleTableMouseClicked
-        int bus_id = Integer.parseInt((String) Travel_ScheduleTable.getValueAt(Travel_ScheduleTable.getSelectedColumn(),0));
-        String starting_point =Travel_ScheduleTable.getValueAt (Travel_ScheduleTable.getSelectedColumn(),1).toString();
-        String destination =Travel_ScheduleTable.getValueAt (Travel_ScheduleTable.getSelectedColumn(),2).toString();
-        String depart_time =Travel_ScheduleTable.getValueAt (Travel_ScheduleTable.getSelectedColumn(),3).toString();
-        String depart_date =Travel_ScheduleTable.getValueAt (Travel_ScheduleTable.getSelectedColumn(),4).toString();
-        int remaining = Integer.parseInt((String) Travel_ScheduleTable.getValueAt(Travel_ScheduleTable.getSelectedColumn(),5));
-        int ticket_price = Integer.parseInt((String) Travel_ScheduleTable.getValueAt(Travel_ScheduleTable.getSelectedColumn(),6));
-        System.out.println(bus_id+starting_point+destination+depart_time+depart_date+remaining+ticket_price);
+        int index = Travel_ScheduleTable.getSelectedRow();
+        TableModel model = Travel_ScheduleTable.getModel();
+        String bus_id = model.getValueAt(index,0).toString();
+        String starting_point = model.getValueAt(index,1).toString();
+        String destination = model.getValueAt(index,2).toString();
+        String depart_time = model.getValueAt(index,3).toString();
+        String depart_date = model.getValueAt(index,4).toString();
+        String remaining_seats = model.getValueAt(index,5).toString();
+        String ticket_price = model.getValueAt(index,6).toString();
+        System.out.println(bus_id+"\n"+depart_time+"\n"+destination);
     }//GEN-LAST:event_Travel_ScheduleTableMouseClicked
 
     /**
