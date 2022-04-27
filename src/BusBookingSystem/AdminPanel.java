@@ -217,9 +217,9 @@ public class AdminPanel extends javax.swing.JFrame {
                         String plate_number = resultTable1.getString("plate-no");
                         String type = resultTable1.getString("bus-type");
                         String total_seats = String.valueOf(resultTable1.getInt("total-seats"));
-                        String driver_id = String.valueOf(resultTable1.getInt("driver-id"));
+                        String driver_name = resultTable1.getString("driver-name");
                         
-                        String busData[] = {bus_id,plate_number,type,total_seats,driver_id};
+                        String busData[] = {bus_id,plate_number,type,total_seats,driver_name};
                         DefaultTableModel TableModel = (DefaultTableModel)AdminTablesPage.BusTable.getModel();
                         TableModel.addRow(busData);
                     }
@@ -240,19 +240,7 @@ public class AdminPanel extends javax.swing.JFrame {
                         DefaultTableModel TableModel = (DefaultTableModel)AdminTablesPage.CustomerTable.getModel();
                         TableModel.addRow(customerData);
                     }
-                    // Driver Table
-                    String sql3 = "SELECT * FROM `driver-table`";
-                    PreparedStatement table3 =con.prepareStatement(sql3);
-                    ResultSet resultTable3 = table3.executeQuery();
-                    while(resultTable3.next()){
-                        String driver_id = String.valueOf(resultTable3.getInt("driver-id"));
-                        String driver_name = resultTable3.getString("driver-name");
-                        String driver_phone = String.valueOf(resultTable3.getInt("driver-phone"));
-                        
-                        String DriverData[] = {driver_id,driver_name,driver_phone};
-                        DefaultTableModel TableModel = (DefaultTableModel)AdminTablesPage.DriverTable.getModel();
-                        TableModel.addRow(DriverData);
-                    }
+                 
                     
                     // Booking Table
                     String sql4 = "SELECT * FROM `booking-table`";
@@ -261,10 +249,10 @@ public class AdminPanel extends javax.swing.JFrame {
                     while(resultTable4.next()){
                         String booking_id = String.valueOf(resultTable4.getInt("booking-id"));
                         String customer_id = String.valueOf(resultTable4.getInt("customer-id"));
-                        String name = resultTable4.getString("name");
+                        String customer_name = resultTable4.getString("customer-name");
                         String paid = resultTable4.getString("paid");
                         String seat_number = String.valueOf(resultTable4.getInt("seat-number"));
-                        String BookingData[] = {booking_id,customer_id,name,seat_number,paid};
+                        String BookingData[] = {booking_id,customer_id,customer_name,seat_number,paid};
                         DefaultTableModel TableModel = (DefaultTableModel)AdminTablesPage.BookingTable.getModel();
                         TableModel.addRow(BookingData);
                     }
