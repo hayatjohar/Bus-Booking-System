@@ -22,12 +22,12 @@ public class AdminFram extends javax.swing.JFrame {
         BookingTable = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
         Travel_ScheduleTable = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        BttnExit = new javax.swing.JButton();
         BttnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,9 +122,6 @@ public class AdminFram extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(Travel_ScheduleTable);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Welcome Admin");
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Bus Table :");
 
@@ -139,6 +136,16 @@ public class AdminFram extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Travel ScheduleTable Table :");
+
+        BttnExit.setBackground(new java.awt.Color(255, 0, 0));
+        BttnExit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BttnExit.setForeground(new java.awt.Color(255, 255, 255));
+        BttnExit.setText("Exit");
+        BttnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BttnExitActionPerformed(evt);
+            }
+        });
 
         BttnLogout.setBackground(new java.awt.Color(255, 0, 0));
         BttnLogout.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -171,23 +178,24 @@ public class AdminFram extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel5)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(BttnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane4))))))
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel6))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane4)))))
+                    .addComponent(jLabel6)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BttnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BttnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(BttnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BttnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
@@ -195,7 +203,6 @@ public class AdminFram extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
@@ -216,9 +223,15 @@ public class AdminFram extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BttnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnExitActionPerformed
+        AdminPanel admin = new AdminPanel();
+        admin.setVisible(true); // go to admin panel page
+        this.setVisible(false); // hide this page
+    }//GEN-LAST:event_BttnExitActionPerformed
+
     private void BttnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnLogoutActionPerformed
-        UserLogin user = new UserLogin();
-        user.setVisible(true); // go to login page
+        UserLogin login = new UserLogin();
+        login.setVisible(true); // go to Login page
         this.setVisible(false); // hide this page
     }//GEN-LAST:event_BttnLogoutActionPerformed
 
@@ -232,12 +245,12 @@ public class AdminFram extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTable BookingTable;
+    private javax.swing.JButton BttnExit;
     private javax.swing.JButton BttnLogout;
     public javax.swing.JTable BusTable;
     public javax.swing.JTable CustomerTable;
     public javax.swing.JTable DriverTable;
     public javax.swing.JTable Travel_ScheduleTable;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

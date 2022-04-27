@@ -172,98 +172,13 @@ public class UserLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BttnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnLoginActionPerformed
-          AdminFram AdminPage = new AdminFram();
-          if(IpUsername.getText().trim().isEmpty() || IpPassword.getText().trim().isEmpty()){
+        if(IpUsername.getText().trim().isEmpty() || IpPassword.getText().trim().isEmpty()){
                 JOptionPane.showMessageDialog(null, "can't Login with null values");
-          }else if( IpUsername.getText().trim().contains("admin") &&  IpPassword.getText().trim().contains("admin") ){
-                
+        }else if( IpUsername.getText().trim().contains("admin") &&  IpPassword.getText().trim().contains("admin") ){
+                AdminPanel AdminPage = new AdminPanel();
                 AdminPage.setVisible(true); // show admin page
                 this.setVisible(false); // hide this form
-                try{
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
-                    // Bus Table
-                    String sql1 = "SELECT * FROM `bus-table`";
-                    PreparedStatement table1=con.prepareStatement(sql1);
-                    ResultSet resultTable1 = table1.executeQuery();
-                    while(resultTable1.next()){
-                        String bus_id = String.valueOf(resultTable1.getInt("bus-id"));
-                        String plate_number = resultTable1.getString("plate-no");
-                        String type = resultTable1.getString("bus-type");
-                        String total_seats = String.valueOf(resultTable1.getInt("total-seats"));
-                        String driver_id = String.valueOf(resultTable1.getInt("driver-id"));
-                        
-                        String busData[] = {bus_id,plate_number,type,total_seats,driver_id};
-                        DefaultTableModel TableModel = (DefaultTableModel)AdminPage.BusTable.getModel();
-                        TableModel.addRow(busData);
-                    }
-                    
-                    // Customer Table
-                    String sql2 = "SELECT * FROM `customer-table`";
-                    PreparedStatement table2 =con.prepareStatement(sql2);
-                    ResultSet resultTable2 = table2.executeQuery();
-                    while(resultTable2.next()){
-                        String customer_id = String.valueOf(resultTable2.getInt("customer-id"));
-                        String customer_name = resultTable2.getString("customer-name");
-                        String password = resultTable2.getString("password");
-                        String username = resultTable2.getString("username");
-                        String phone_number = String.valueOf(resultTable2.getInt("phone-number"));
-                        String Birth_date = String.valueOf(resultTable2.getDate("birth-date"));
-                        
-                        String customerData[] = {customer_id,customer_name,phone_number,Birth_date,username,password};
-                        DefaultTableModel TableModel = (DefaultTableModel)AdminPage.CustomerTable.getModel();
-                        TableModel.addRow(customerData);
-                    }
-                    // Driver Table
-                    String sql3 = "SELECT * FROM `driver-table`";
-                    PreparedStatement table3 =con.prepareStatement(sql3);
-                    ResultSet resultTable3 = table3.executeQuery();
-                    while(resultTable3.next()){
-                        String driver_id = String.valueOf(resultTable3.getInt("driver-id"));
-                        String driver_name = resultTable3.getString("driver-name");
-                        String driver_phone = String.valueOf(resultTable3.getInt("driver-phone"));
-                        
-                        String DriverData[] = {driver_id,driver_name,driver_phone};
-                        DefaultTableModel TableModel = (DefaultTableModel)AdminPage.DriverTable.getModel();
-                        TableModel.addRow(DriverData);
-                    }
-                    
-                    // Booking Table
-                    String sql4 = "SELECT * FROM `booking-table`";
-                    PreparedStatement table4 = con.prepareStatement(sql4);
-                    ResultSet resultTable4 = table4.executeQuery();
-                    while(resultTable4.next()){
-                        String booking_id = String.valueOf(resultTable4.getInt("booking-id"));
-                        String customer_id = String.valueOf(resultTable4.getInt("customer-id"));
-                        String name = resultTable4.getString("name");
-                        String paid = resultTable4.getString("paid");
-                        String seat_number = String.valueOf(resultTable4.getInt("seat-number"));
-                        String BookingData[] = {booking_id,customer_id,name,seat_number,paid};
-                        DefaultTableModel TableModel = (DefaultTableModel)AdminPage.BookingTable.getModel();
-                        TableModel.addRow(BookingData);
-                    }
-                    
-                    // Travel Schedule Table
-                    String sql5 = "SELECT * FROM `travel schedule-table`";
-                    PreparedStatement table5 = con.prepareStatement(sql5);
-                    ResultSet resultTable5 = table5.executeQuery();
-                    while(resultTable5.next()){
-                        String bus_id = String.valueOf(resultTable5.getInt("bus-id"));
-                        String starting_point = resultTable5.getString("starting-point");
-                        String destination = resultTable5.getString("destination");
-                        String depart_time = String.valueOf(resultTable5.getTime("depart-time"));
-                        String depart_date = String.valueOf(resultTable5.getDate("depart-date"));
-                        String remaining_seats = String.valueOf(resultTable5.getInt("remaining-seats"));
-                        String ticket_price =  String.valueOf(resultTable5.getInt("ticket-price"));
-                        String Travel_Schedule[] = {bus_id,starting_point,destination,depart_time,depart_date,remaining_seats,ticket_price};
-                        DefaultTableModel TableModel = (DefaultTableModel)AdminPage.Travel_ScheduleTable.getModel();
-                        TableModel.addRow(Travel_Schedule);
-                    }
-                }catch(Exception e){
-                    JOptionPane.showMessageDialog(null, e);
-                }    
-                
-         }else{      
+        }else{      
                 try{
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
@@ -288,7 +203,7 @@ public class UserLogin extends javax.swing.JFrame {
                 catch(Exception e){
                     JOptionPane.showMessageDialog(null, e);
                 }
-          }
+        }
     }//GEN-LAST:event_BttnLoginActionPerformed
 
     private void IpUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IpUsernameActionPerformed
