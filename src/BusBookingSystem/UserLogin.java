@@ -190,38 +190,32 @@ public class UserLogin extends javax.swing.JFrame {
                     if(rs.next()){
                         JOptionPane.showMessageDialog(null,"Login successfully");
                         AddBooking user = new AddBooking();
+                        ConfirmBooking userr = new ConfirmBooking();
                         user.setVisible(true); // go to add booking page
-                     
                         this.setVisible(false); // hide this page
                         String customer_name = rs.getString("customer-name");
                         user.user_name.setText(customer_name);
-                       
                         try{
                              // Travel Schedule Table
-                    String sql5 = "SELECT * FROM `travel-schedule-table`";
-                    PreparedStatement table5 = con.prepareStatement(sql5);
-                    ResultSet resultTable5 = table5.executeQuery();
-                    
-                    while(resultTable5.next()){
-                        String bus_id = String.valueOf(resultTable5.getInt("bus-id"));
-                        String starting_point = resultTable5.getString("starting-point");
-                        String destination = resultTable5.getString("destination");
-                        String depart_time = resultTable5.getString("depart-time");
-                        String depart_date = String.valueOf(resultTable5.getDate("depart-date"));
-                        String remaining_seats = String.valueOf(resultTable5.getInt("remaining-seats"));
-                        String ticket_price =  String.valueOf(resultTable5.getInt("ticket-price"));
-                        String Travel_Schedule[] = {bus_id,starting_point,destination,depart_time,depart_date,remaining_seats,ticket_price};
-                        DefaultTableModel TableModel = (DefaultTableModel)user.Travel_Schedule_ListTable.getModel();
-                        TableModel.addRow(Travel_Schedule);
-                    }
-                        }
-                        catch(Exception e){
-                            
+                            String sql2 = "SELECT * FROM `travel-schedule-table`";
+                            PreparedStatement table5 = con.prepareStatement(sql2);
+                            ResultSet result = table5.executeQuery();
+                            while(result.next()){
+                                String bus_id = String.valueOf(result.getInt("bus-id"));
+                                String starting_point = result.getString("starting-point");
+                                String destination = result.getString("destination");
+                                String depart_time = result.getString("depart-time");
+                                String depart_date = String.valueOf(result.getDate("depart-date"));
+                                String remaining_seats = String.valueOf(result.getInt("remaining-seats"));
+                                String ticket_price =  String.valueOf(result.getInt("ticket-price"));
+                                String Travel_Schedule[] = {bus_id,starting_point,destination,depart_time,depart_date,remaining_seats,ticket_price};
+                                DefaultTableModel TableModel = (DefaultTableModel)user.Travel_Schedule_ListTable.getModel();
+                                TableModel.addRow(Travel_Schedule);
+                            }
+                        }catch(Exception e){
                             JOptionPane.showMessageDialog(null, e);
                         }
-                    
-                    }
-                    else{
+                    }else{
                         JOptionPane.showMessageDialog(null,"Login failed\nUsername\\Password does not correct");
                     }
                     con.close();

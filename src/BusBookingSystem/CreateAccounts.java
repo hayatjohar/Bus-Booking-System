@@ -295,9 +295,7 @@ public class CreateAccounts extends javax.swing.JFrame {
                     PreparedStatement stmt = con.prepareStatement(sql);
                     stmt.setString(1, IpName.getText().trim());
                     stmt.setString(2, IpPhone.getText().trim());
-                        System.out.println(IpDate.getDate());
-                        java.sql.Date sqlDate = new java.sql.Date((IpDate.getDate()).getTime()); // convert from java date to sql date
-                        System.out.println(sqlDate);
+                    java.sql.Date sqlDate = new java.sql.Date((IpDate.getDate()).getTime()); // convert from java date to sql date
                     stmt.setDate(3, sqlDate);
                     stmt.setString(4, IpUsername.getText());
                     stmt.setString(5, IpPassword.getText());

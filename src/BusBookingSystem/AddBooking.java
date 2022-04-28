@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import static javax.swing.UIManager.getInt;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -318,9 +319,9 @@ public class AddBooking extends javax.swing.JFrame {
     private void BttnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnSearchActionPerformed
         try{
             String Starting = StartringPoint.getSelectedItem().toString();
-            String destination = Distination.getSelectedItem().toString();
-            
+            String destination = Distination.getSelectedItem().toString();        
             java.sql.Date sqlDate = new java.sql.Date((DepartDate.getDate()).getTime()); // convert from java date to sql date
+            
             try{
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
@@ -354,6 +355,7 @@ public class AddBooking extends javax.swing.JFrame {
     }//GEN-LAST:event_BttnSearchActionPerformed
 
     private void Travel_ScheduleTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Travel_ScheduleTableMouseClicked
+        ConfirmBooking form = new ConfirmBooking();
         int index = Travel_ScheduleTable.getSelectedRow();
         TableModel model = Travel_ScheduleTable.getModel();
         String bus_id = model.getValueAt(index,0).toString();
@@ -363,7 +365,29 @@ public class AddBooking extends javax.swing.JFrame {
         String depart_date = model.getValueAt(index,4).toString();
         String remaining_seats = model.getValueAt(index,5).toString();
         String ticket_price = model.getValueAt(index,6).toString();
-        System.out.println(bus_id+"\n"+depart_time+"\n"+destination);
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
+            String sql = "SELECT `customer-id`, `customer-name` FROM `customer-table` WHERE username='safii'";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet result = stmt.executeQuery();
+            if(result.next()){
+                int customer_id = result.getInt("customer-id");
+                String customer_name = result.getString("customer-name");
+                form.user_name.setText(customer_name);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        form.setVisible(true);
+        form.bus_id.setText(bus_id);
+        form.starting_point.setText(starting_point);
+        form.destination.setText(destination);
+        form.depart_time.setText(depart_time);
+        form.depart_date.setText(depart_date);
+        form.remaining_seats.setText(remaining_seats);
+        form.ticket_price.setText(ticket_price);
+        
     }//GEN-LAST:event_Travel_ScheduleTableMouseClicked
 
     /**
