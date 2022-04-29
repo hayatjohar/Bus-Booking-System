@@ -70,11 +70,11 @@ public class AdminFram extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Booking ID", "Customer ID", "Customer Name", "Seat Number", "Paid"
+                "Booking ID", "Bus ID", "Customer ID", "Customer Name", "Seat Number", "Paid"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -88,11 +88,11 @@ public class AdminFram extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Bus ID", "Starting Point", "Destination", "Depart Time", "Depart Date", "Remaining Seats", "Ticket Price"
+                "Travel ID", "Bus ID", "Starting Point", "Destination", "Depart Time", "Depart Date", "Remaining Seats", "Ticket Price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

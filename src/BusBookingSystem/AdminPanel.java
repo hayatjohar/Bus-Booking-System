@@ -321,11 +321,12 @@ public class AdminPanel extends javax.swing.JFrame {
                     ResultSet resultTable4 = table4.executeQuery();
                     while(resultTable4.next()){
                         String booking_id = String.valueOf(resultTable4.getInt("booking-id"));
+                        String bus_id = String.valueOf(resultTable4.getInt("bus-id"));
                         String customer_id = String.valueOf(resultTable4.getInt("customer-id"));
                         String customer_name = resultTable4.getString("customer-name");
                         String paid = resultTable4.getString("paid");
                         String seat_number = String.valueOf(resultTable4.getInt("seat-number"));
-                        String BookingData[] = {booking_id,customer_id,customer_name,seat_number,paid};
+                        String BookingData[] = {booking_id,bus_id,customer_id,customer_name,seat_number,paid};
                         DefaultTableModel TableModel = (DefaultTableModel)AdminTablesPage.BookingTable.getModel();
                         TableModel.addRow(BookingData);
                     }
@@ -335,6 +336,7 @@ public class AdminPanel extends javax.swing.JFrame {
                     PreparedStatement table5 = con.prepareStatement(sql5);
                     ResultSet resultTable5 = table5.executeQuery();
                     while(resultTable5.next()){
+                        String travel_id = String.valueOf(resultTable5.getInt("travel-id"));
                         String bus_id = String.valueOf(resultTable5.getInt("bus-id"));
                         String starting_point = resultTable5.getString("starting-point");
                         String destination = resultTable5.getString("destination");
@@ -342,7 +344,7 @@ public class AdminPanel extends javax.swing.JFrame {
                         String depart_date = String.valueOf(resultTable5.getDate("depart-date"));
                         String remaining_seats = String.valueOf(resultTable5.getInt("remaining-seats"));
                         String ticket_price =  String.valueOf(resultTable5.getInt("ticket-price"));
-                        String Travel_Schedule[] = {bus_id,starting_point,destination,depart_time,depart_date,remaining_seats,ticket_price};
+                        String Travel_Schedule[] = {travel_id,bus_id,starting_point,destination,depart_time,depart_date,remaining_seats,ticket_price};
                         DefaultTableModel TableModel = (DefaultTableModel)AdminTablesPage.Travel_ScheduleTable.getModel();
                         TableModel.addRow(Travel_Schedule);
                     }
@@ -383,7 +385,7 @@ public class AdminPanel extends javax.swing.JFrame {
                     
                     // Add to travel schedule table
 
-                    String sql2 = "INSERT INTO `travel-schedule-table` (`bus-id`, `depart-date`, `depart-time`, `destination`, `remaining-seats`,`starting-point`,`ticket-price`) VALUES (?,?,?,?,?,?,?)";
+                    String sql2 = "INSERT INTO `travel-schedule-table` (`travel-id`,`bus-id`, `depart-date`, `depart-time`, `destination`, `remaining-seats`,`starting-point`,`ticket-price`) VALUES (null,?,?,?,?,?,?,?)";
                     PreparedStatement stmt2 = con.prepareStatement(sql2);
                     stmt2.setInt(1,busID);
                     java.sql.Date sqlDate = new java.sql.Date((DepartDate.getDate()).getTime()); // convert from java date to sql date

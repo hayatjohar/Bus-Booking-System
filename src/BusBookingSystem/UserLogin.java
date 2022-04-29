@@ -17,7 +17,6 @@ import javax.swing.table.DefaultTableModel;
  * @author bassamphone
  */
 public class UserLogin extends javax.swing.JFrame {
-    
     /**
      * Creates new form s
      */
@@ -178,43 +177,24 @@ public class UserLogin extends javax.swing.JFrame {
                 AdminPanel AdminPage = new AdminPanel();
                 AdminPage.setVisible(true); // show admin page
                 this.setVisible(false); // hide this form
-        }else{      
+        }else{
                 try{
+                    String user_name = IpUsername.getText().trim();
+                    String password = IpPassword.getText().trim();
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
                     String sql = "SELECT * FROM `customer-table` WHERE username =? AND password=?";
                     PreparedStatement stmt=con.prepareStatement(sql);
-                    stmt.setString(1,IpUsername.getText().trim());
-                    stmt.setString(2,IpPassword.getText().trim());
+                    stmt.setString(1,user_name);
+                    stmt.setString(2,password);
                     ResultSet rs = stmt.executeQuery();
                     if(rs.next()){
                         JOptionPane.showMessageDialog(null,"Login successfully");
                         AddBooking user = new AddBooking();
-                        ConfirmBooking userr = new ConfirmBooking();
                         user.setVisible(true); // go to add booking page
                         this.setVisible(false); // hide this page
-                        String customer_name = rs.getString("customer-name");
-                        user.user_name.setText(customer_name);
-                        try{
-                             // Travel Schedule Table
-                            String sql2 = "SELECT * FROM `travel-schedule-table`";
-                            PreparedStatement table5 = con.prepareStatement(sql2);
-                            ResultSet result = table5.executeQuery();
-                            while(result.next()){
-                                String bus_id = String.valueOf(result.getInt("bus-id"));
-                                String starting_point = result.getString("starting-point");
-                                String destination = result.getString("destination");
-                                String depart_time = result.getString("depart-time");
-                                String depart_date = String.valueOf(result.getDate("depart-date"));
-                                String remaining_seats = String.valueOf(result.getInt("remaining-seats"));
-                                String ticket_price =  String.valueOf(result.getInt("ticket-price"));
-                                String Travel_Schedule[] = {bus_id,starting_point,destination,depart_time,depart_date,remaining_seats,ticket_price};
-                                DefaultTableModel TableModel = (DefaultTableModel)user.Travel_Schedule_ListTable.getModel();
-                                TableModel.addRow(Travel_Schedule);
-                            }
-                        }catch(Exception e){
-                            JOptionPane.showMessageDialog(null, e);
-                        }
+                        String customer_namee = rs.getString("customer-name");
+                        user.customer_name.setText(customer_namee);
                     }else{
                         JOptionPane.showMessageDialog(null,"Login failed\nUsername\\Password does not correct");
                     }
@@ -282,7 +262,7 @@ public class UserLogin extends javax.swing.JFrame {
     private javax.swing.JButton BttnLogin;
     private javax.swing.JButton BttnReset;
     private javax.swing.JPasswordField IpPassword;
-    private javax.swing.JTextField IpUsername;
+    public javax.swing.JTextField IpUsername;
     private javax.swing.JLabel LblPassword;
     private javax.swing.JLabel LblUsername;
     private javax.swing.JPanel jPanel1;

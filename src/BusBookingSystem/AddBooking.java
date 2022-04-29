@@ -25,6 +25,29 @@ public class AddBooking extends javax.swing.JFrame {
     public AddBooking() {
         initComponents();
         this.setResizable(false);
+        
+        try{
+            // Travel Schedule Table
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
+            String sql = "SELECT * FROM `travel-schedule-table`";
+            PreparedStatement table = con.prepareStatement(sql);
+            ResultSet result = table.executeQuery();
+            while(result.next()){
+                String bus_id = String.valueOf(result.getInt("bus-id"));
+                String starting_point = result.getString("starting-point");
+                String destination = result.getString("destination");
+                String depart_time = result.getString("depart-time");
+                String depart_date = String.valueOf(result.getDate("depart-date"));
+                String remaining_seats = String.valueOf(result.getInt("remaining-seats"));
+                String ticket_price =  String.valueOf(result.getInt("ticket-price"));
+                String Travel_Schedule[] = {bus_id,starting_point,destination,depart_time,depart_date,remaining_seats,ticket_price};
+                DefaultTableModel TableModel = (DefaultTableModel)Travel_Schedule_ListTable.getModel();
+                TableModel.addRow(Travel_Schedule);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     /**
@@ -56,7 +79,9 @@ public class AddBooking extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        user_name = new javax.swing.JLabel();
+        customer_name = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        BttnMyBooking = new javax.swing.JButton();
         BttnLogout = new javax.swing.JButton();
 
         popupMenu1.setLabel("popupMenu1");
@@ -121,7 +146,9 @@ public class AddBooking extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -143,8 +170,7 @@ public class AddBooking extends javax.swing.JFrame {
                                     .addComponent(Distination, 0, 95, Short.MAX_VALUE)
                                     .addComponent(DepartTime)))
                             .addComponent(BttnSearch))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,8 +281,18 @@ public class AddBooking extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Welcome");
 
-        user_name.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        user_name.setText("User name");
+        customer_name.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        customer_name.setText("User name");
+
+        BttnMyBooking.setBackground(new java.awt.Color(51, 102, 255));
+        BttnMyBooking.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BttnMyBooking.setForeground(new java.awt.Color(255, 255, 255));
+        BttnMyBooking.setText("My Booking");
+        BttnMyBooking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BttnMyBookingActionPerformed(evt);
+            }
+        });
 
         BttnLogout.setBackground(new java.awt.Color(255, 0, 0));
         BttnLogout.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -267,6 +303,27 @@ public class AddBooking extends javax.swing.JFrame {
                 BttnLogoutActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(BttnMyBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BttnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BttnMyBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BttnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -283,23 +340,26 @@ public class AddBooking extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 751, Short.MAX_VALUE)
-                        .addComponent(BttnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))))
+                        .addComponent(customer_name, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 607, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BttnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 17, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(customer_name, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         setSize(new java.awt.Dimension(1429, 531));
@@ -333,18 +393,17 @@ public class AddBooking extends javax.swing.JFrame {
                 stmt.setString(4, DepartTime.getText());
                 ResultSet resultTable = stmt.executeQuery();
                 while(resultTable.next()){
-                            String bus_id = String.valueOf(resultTable.getInt("bus-id"));
-                            String starting_point = resultTable.getString("starting-point");
-                            String ddestination = resultTable.getString("destination");
-                            String depart_time = resultTable.getString("depart-time");
-                            String depart_date = String.valueOf(resultTable.getDate("depart-date"));
-                            String remaining_seats = String.valueOf(resultTable.getInt("remaining-seats"));
-                            String ticket_price =  String.valueOf(resultTable.getInt("ticket-price"));
-                            String Travel_Schedule[] = {bus_id,starting_point,ddestination,depart_time,depart_date,remaining_seats,ticket_price};
-                            DefaultTableModel TableModel = (DefaultTableModel)Travel_ScheduleTable.getModel();
-                            TableModel.addRow(Travel_Schedule);
-                    }
-                //stmt.setTime(4,time);
+                    String bus_id = String.valueOf(resultTable.getInt("bus-id"));
+                    String starting_point = resultTable.getString("starting-point");
+                    String ddestination = resultTable.getString("destination");
+                    String depart_time = resultTable.getString("depart-time");
+                    String depart_date = String.valueOf(resultTable.getDate("depart-date"));
+                    String remaining_seats = String.valueOf(resultTable.getInt("remaining-seats"));
+                    String ticket_price =  String.valueOf(resultTable.getInt("ticket-price"));
+                    String Travel_Schedule[] = {bus_id,starting_point,ddestination,depart_time,depart_date,remaining_seats,ticket_price};
+                    DefaultTableModel TableModel = (DefaultTableModel)Travel_ScheduleTable.getModel();
+                    TableModel.addRow(Travel_Schedule);
+                }
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -368,18 +427,21 @@ public class AddBooking extends javax.swing.JFrame {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
-            String sql = "SELECT `customer-id`, `customer-name` FROM `customer-table` WHERE username='safii'";
+            String sql = "SELECT `customer-id`, `customer-name` FROM `customer-table` WHERE `customer-name`=?";
             PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, customer_name.getText());
             ResultSet result = stmt.executeQuery();
             if(result.next()){
-                int customer_id = result.getInt("customer-id");
-                String customer_name = result.getString("customer-name");
-                form.user_name.setText(customer_name);
+                String CustomerID = result.getString("customer-id");
+                String CustomerName = result.getString("customer-name");
+                form.customer_name.setText(CustomerName);
+                form.customer_id.setText(CustomerID);
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-        form.setVisible(true);
+        form.setVisible(true); // go to Confirm booking page
+        this.setVisible(false); // hide this page
         form.bus_id.setText(bus_id);
         form.starting_point.setText(starting_point);
         form.destination.setText(destination);
@@ -389,6 +451,35 @@ public class AddBooking extends javax.swing.JFrame {
         form.ticket_price.setText(ticket_price);
         
     }//GEN-LAST:event_Travel_ScheduleTableMouseClicked
+
+    private void BttnMyBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnMyBookingActionPerformed
+        MyBooking my_booking_page = new MyBooking();
+        AddBooking user = new AddBooking();
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
+            String sql = "SELECT * FROM `booking-table` WHERE `customer-name`=?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, customer_name.getText());
+            ResultSet result = stmt.executeQuery();
+            while(result.next()){
+                String booking_id = String.valueOf(result.getInt("booking-id"));
+                String bus_id = String.valueOf(result.getInt("bus-id"));
+                String customer_id = String.valueOf(result.getInt("customer-id"));
+                String customer_namee = result.getString("customer-name");
+                String seat_number = String.valueOf(result.getInt("seat-number"));
+                String paid = result.getString("paid");
+                String MyBooking[] = {booking_id,bus_id,customer_id,customer_namee,seat_number,paid};
+                DefaultTableModel TableModel = (DefaultTableModel)my_booking_page.MyBookingTable.getModel();
+                TableModel.addRow(MyBooking);
+            }
+            my_booking_page.customer_name.setText(customer_name.getText());
+            my_booking_page.setVisible(true); // go to by booking page
+            this.setVisible(false); // hide this page
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_BttnMyBookingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -423,6 +514,7 @@ public class AddBooking extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BttnLogout;
+    private javax.swing.JButton BttnMyBooking;
     private javax.swing.JButton BttnSearch;
     private com.toedter.calendar.JDateChooser DepartDate;
     private javax.swing.JTextField DepartTime;
@@ -430,6 +522,7 @@ public class AddBooking extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> StartringPoint;
     public javax.swing.JTable Travel_ScheduleTable;
     public javax.swing.JTable Travel_Schedule_ListTable;
+    public javax.swing.JLabel customer_name;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -440,9 +533,9 @@ public class AddBooking extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private java.awt.PopupMenu popupMenu1;
-    public javax.swing.JLabel user_name;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,12 @@
  */
 package BusBookingSystem;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author bassamphone
@@ -15,6 +21,12 @@ public class ConfirmBooking extends javax.swing.JFrame {
      */
     public ConfirmBooking() {
         initComponents();
+
+    }
+            
+    ConfirmBooking(String UserName,int UserID){
+        //customer_id.setText(Integer.toString(UserID));
+        customer_name.setText(UserName);
     }
 
     /**
@@ -46,7 +58,12 @@ public class ConfirmBooking extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         number_of_seat = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        user_name = new javax.swing.JLabel();
+        customer_name = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        Paid = new javax.swing.JComboBox<>();
+        BttnBook = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        customer_id = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,9 +121,29 @@ public class ConfirmBooking extends javax.swing.JFrame {
 
         jLabel9.setText("Number of seat :");
 
-        jLabel10.setText("Name :");
+        jLabel10.setText("Customer name :");
 
-        user_name.setText("jLabel11");
+        customer_name.setText("jLabel11");
+
+        jLabel11.setText("Pay now ?");
+
+        Paid.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        Paid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PaidActionPerformed(evt);
+            }
+        });
+
+        BttnBook.setText("Book!");
+        BttnBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BttnBookActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Customer ID :");
+
+        customer_id.setText("jLabel11");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -117,61 +154,95 @@ public class ConfirmBooking extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel8))
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(depart_date)
-                            .addComponent(depart_time)
-                            .addComponent(destination)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(starting_point)
-                                    .addComponent(bus_id))
-                                .addGap(198, 198, 198)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel8))
+                                .addGap(24, 24, 24)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(depart_date)
+                                    .addComponent(depart_time)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(starting_point)
+                                            .addComponent(bus_id)
+                                            .addComponent(destination))
+                                        .addGap(198, 198, 198)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jLabel9)
+                                                            .addComponent(jLabel11)
+                                                            .addComponent(jLabel12))
+                                                        .addGap(15, 15, 15))
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                                        .addComponent(jLabel10)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(Paid, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(customer_id)
+                                                            .addComponent(customer_name)
+                                                            .addComponent(number_of_seat, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(BttnBook, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(user_name)
-                                    .addComponent(number_of_seat, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7))
+                                .addGap(10, 10, 10)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(remaining_seats)
+                                    .addComponent(ticket_price))
+                                .addGap(308, 308, 308)))
+                        .addContainerGap(193, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(remaining_seats)
-                            .addComponent(ticket_price))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(bus_id)
-                    .addComponent(jLabel10)
-                    .addComponent(user_name))
+                    .addComponent(jLabel12)
+                    .addComponent(customer_id))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(starting_point)
-                    .addComponent(jLabel9)
-                    .addComponent(number_of_seat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(destination))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(depart_time))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(starting_point))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(destination))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(depart_time)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(customer_name))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(number_of_seat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(Paid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -179,16 +250,22 @@ public class ConfirmBooking extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(remaining_seats))
+                    .addComponent(remaining_seats)
+                    .addComponent(BttnBook, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(ticket_price))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
         jButton1.setText("Cancel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -218,6 +295,70 @@ public class ConfirmBooking extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(780, 538));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void PaidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PaidActionPerformed
+
+    private void BttnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnBookActionPerformed
+        int BusID = Integer.parseInt(bus_id.getText());
+        try{
+            int seat_number = Integer.parseInt(number_of_seat.getText());
+            String paid = Paid.getSelectedItem().toString();
+            try{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/busbookingsystem","root","");
+                String sql = "SELECT `customer-id`, `customer-name` FROM `customer-table` WHERE `customer-name` =?";
+                PreparedStatement stmt = con.prepareStatement(sql);
+                stmt.setString(1, customer_name.getText());
+                ResultSet result1 = stmt.executeQuery();
+                
+                String sql2="SELECT `bus-id`FROM `bus-table` WHERE `bus-id`=?";
+                PreparedStatement stmt2 = con.prepareStatement(sql2);
+                stmt2.setInt(1, BusID);
+                ResultSet result2 = stmt2.executeQuery();
+                if(result1.next() && result2.next()){
+                    int CustomerID = result1.getInt("customer-id");
+                    String CustomerName = result1.getString("customer-name");
+                    int Bus_ID = result2.getInt("bus-id");
+                    
+                    String sql3 = "INSERT INTO `booking-table` (`booking-id`,`customer-id`,`bus-id`,`customer-name`,`seat-number`,`paid`) VALUES (null,?,?,?,?,?)";
+                    PreparedStatement stmt3 = con.prepareStatement(sql3);
+                    stmt3.setInt(1, CustomerID);
+                    stmt3.setInt(2, Bus_ID);
+                    stmt3.setString(3, CustomerName);
+                    stmt3.setInt(4, seat_number);
+                    stmt3.setString(5, paid);
+                    stmt3.executeUpdate();
+                    int remaining = Integer.parseInt(remaining_seats.getText());
+                    int number_of_seats = remaining - 1 ;
+                    String upadte_seats = "UPDATE `travel-schedule-table` SET `remaining-seats`=? WHERE `bus-id`=?";
+                    PreparedStatement update = con.prepareStatement(upadte_seats);
+                    update.setInt(1,number_of_seats);
+                    update.setInt(2,Bus_ID);
+                    update.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "Ticket booked successfully");
+                    AddBooking Booking_page = new AddBooking();
+                    this.setVisible(false); // hide this page
+                    Booking_page.setVisible(true); // return to booking page
+                    
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+                System.out.println(e);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Add integer value for number of seat!!");
+        }
+    }//GEN-LAST:event_BttnBookActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        AddBooking user = new AddBooking();
+        user.setVisible(true); // return to booking page
+        this.setVisible(false); // hide this page
+        user.customer_name.setText(customer_name.getText());
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,13 +397,19 @@ public class ConfirmBooking extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BttnBook;
+    private javax.swing.JComboBox<String> Paid;
     public javax.swing.JLabel bus_id;
+    public javax.swing.JLabel customer_id;
+    public javax.swing.JLabel customer_name;
     public javax.swing.JLabel depart_date;
     public javax.swing.JLabel depart_time;
     public javax.swing.JLabel destination;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -277,6 +424,5 @@ public class ConfirmBooking extends javax.swing.JFrame {
     public javax.swing.JLabel remaining_seats;
     public javax.swing.JLabel starting_point;
     public javax.swing.JLabel ticket_price;
-    public javax.swing.JLabel user_name;
     // End of variables declaration//GEN-END:variables
 }
