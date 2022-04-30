@@ -34,6 +34,7 @@ public class AddBooking extends javax.swing.JFrame {
             PreparedStatement table = con.prepareStatement(sql);
             ResultSet result = table.executeQuery();
             while(result.next()){
+                String travel_id = String.valueOf(result.getInt("travel-id"));
                 String bus_id = String.valueOf(result.getInt("bus-id"));
                 String starting_point = result.getString("starting-point");
                 String destination = result.getString("destination");
@@ -41,7 +42,7 @@ public class AddBooking extends javax.swing.JFrame {
                 String depart_date = String.valueOf(result.getDate("depart-date"));
                 String remaining_seats = String.valueOf(result.getInt("remaining-seats"));
                 String ticket_price =  String.valueOf(result.getInt("ticket-price"));
-                String Travel_Schedule[] = {bus_id,starting_point,destination,depart_time,depart_date,remaining_seats,ticket_price};
+                String Travel_Schedule[] = {travel_id,bus_id,starting_point,destination,depart_time,depart_date,remaining_seats,ticket_price};
                 DefaultTableModel TableModel = (DefaultTableModel)Travel_Schedule_ListTable.getModel();
                 TableModel.addRow(Travel_Schedule);
             }
@@ -120,11 +121,11 @@ public class AddBooking extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Bus ID", "Starting Point", "Destination", "Depart Time", "Depart Date", "Remaining Seats", "Ticket Price"
+                "Travel ID", "Bus ID", "Starting Point", "Destination", "Depart Time", "Depart Date", "Remaining Seats", "Ticket Price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -137,8 +138,18 @@ public class AddBooking extends javax.swing.JFrame {
             }
         });
         jScrollPane6.setViewportView(Travel_ScheduleTable);
+        if (Travel_ScheduleTable.getColumnModel().getColumnCount() > 0) {
+            Travel_ScheduleTable.getColumnModel().getColumn(0).setResizable(false);
+            Travel_ScheduleTable.getColumnModel().getColumn(1).setResizable(false);
+            Travel_ScheduleTable.getColumnModel().getColumn(2).setResizable(false);
+            Travel_ScheduleTable.getColumnModel().getColumn(3).setResizable(false);
+            Travel_ScheduleTable.getColumnModel().getColumn(4).setResizable(false);
+            Travel_ScheduleTable.getColumnModel().getColumn(5).setResizable(false);
+            Travel_ScheduleTable.getColumnModel().getColumn(6).setResizable(false);
+            Travel_ScheduleTable.getColumnModel().getColumn(7).setResizable(false);
+        }
 
-        BttnSearch.setBackground(new java.awt.Color(184, 255, 225));
+        BttnSearch.setBackground(new java.awt.Color(193, 222, 252));
         BttnSearch.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
         BttnSearch.setText("Search");
         BttnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -208,11 +219,11 @@ public class AddBooking extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Bus ID", "Starting Point", "Destination", "Depart Time", "Depart Date", "Remaining Seats", "Ticket Price"
+                "Travel ID", "Bus ID", "Starting Point", "Destination", "Depart Time", "Depart Date", "Remaining Seats", "Ticket Price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -220,6 +231,16 @@ public class AddBooking extends javax.swing.JFrame {
             }
         });
         jScrollPane5.setViewportView(Travel_Schedule_ListTable);
+        if (Travel_Schedule_ListTable.getColumnModel().getColumnCount() > 0) {
+            Travel_Schedule_ListTable.getColumnModel().getColumn(0).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(1).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(2).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(3).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(4).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(5).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(6).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(7).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -242,7 +263,6 @@ public class AddBooking extends javax.swing.JFrame {
 
         BttnLogout.setBackground(new java.awt.Color(255, 184, 190));
         BttnLogout.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
-        BttnLogout.setForeground(new java.awt.Color(255, 255, 255));
         BttnLogout.setText("Logout");
         BttnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,9 +270,8 @@ public class AddBooking extends javax.swing.JFrame {
             }
         });
 
-        BttnMyBooking.setBackground(new java.awt.Color(184, 255, 225));
+        BttnMyBooking.setBackground(new java.awt.Color(193, 222, 252));
         BttnMyBooking.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        BttnMyBooking.setForeground(new java.awt.Color(255, 255, 255));
         BttnMyBooking.setText("My Booking");
         BttnMyBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
