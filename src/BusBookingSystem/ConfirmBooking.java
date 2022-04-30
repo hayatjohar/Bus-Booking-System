@@ -421,6 +421,7 @@ public class ConfirmBooking extends javax.swing.JFrame {
                     update.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Ticket booked successfully");
                     AddBooking Booking_page = new AddBooking();
+                    Booking_page.customer_name.setText(customer_name.getText());
                     this.setVisible(false); // hide this page
                     Booking_page.setVisible(true); // return to booking page
                     
