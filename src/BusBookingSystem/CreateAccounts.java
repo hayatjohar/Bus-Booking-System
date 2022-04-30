@@ -78,7 +78,7 @@ public class CreateAccounts extends javax.swing.JFrame {
         });
 
         lblRegister.setFont(new java.awt.Font("Palatino Linotype", 1, 28)); // NOI18N
-        lblRegister.setForeground(new java.awt.Color(255, 255, 255));
+        lblRegister.setForeground(new java.awt.Color(94, 0, 8));
         lblRegister.setText("Bus Ticket Booking System");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -102,16 +102,20 @@ public class CreateAccounts extends javax.swing.JFrame {
         jPanel4.setPreferredSize(new java.awt.Dimension(355, 363));
 
         LblPhone.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
-        LblPhone.setText("Phone number");
+        LblPhone.setForeground(new java.awt.Color(94, 0, 8));
+        LblPhone.setText("Phone no.");
         LblPhone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         LblUsername.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        LblUsername.setForeground(new java.awt.Color(94, 0, 8));
         LblUsername.setText("Username");
 
         LblBirthDate.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        LblBirthDate.setForeground(new java.awt.Color(94, 0, 8));
         LblBirthDate.setText("Birth Date");
 
         LblName.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        LblName.setForeground(new java.awt.Color(94, 0, 8));
         LblName.setText("Name");
 
         IpName.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +128,7 @@ public class CreateAccounts extends javax.swing.JFrame {
 
         BttnReset.setBackground(new java.awt.Color(184, 255, 225));
         BttnReset.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        BttnReset.setForeground(new java.awt.Color(94, 0, 8));
         BttnReset.setText("Reset");
         BttnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +138,7 @@ public class CreateAccounts extends javax.swing.JFrame {
 
         BttnCreateAccount.setBackground(new java.awt.Color(184, 255, 225));
         BttnCreateAccount.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        BttnCreateAccount.setForeground(new java.awt.Color(94, 0, 8));
         BttnCreateAccount.setText("Create Account");
         BttnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +148,7 @@ public class CreateAccounts extends javax.swing.JFrame {
 
         BttnLogin.setBackground(new java.awt.Color(255, 184, 190));
         BttnLogin.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        BttnLogin.setForeground(new java.awt.Color(94, 0, 8));
         BttnLogin.setText("already have account ? Login");
         BttnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,10 +163,12 @@ public class CreateAccounts extends javax.swing.JFrame {
         });
 
         LblPassword.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        LblPassword.setForeground(new java.awt.Color(94, 0, 8));
         LblPassword.setText("Password");
 
         lblLogin.setBackground(new java.awt.Color(255, 255, 255));
         lblLogin.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(94, 0, 8));
         lblLogin.setText("Register Form");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -269,11 +278,13 @@ public class CreateAccounts extends javax.swing.JFrame {
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(94, 0, 8));
         jLabel7.setText("Create your account now!");
         jLabel7.setAutoscrolls(true);
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(94, 0, 8));
         jLabel5.setText("Travels Online ");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -304,10 +315,12 @@ public class CreateAccounts extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
@@ -334,7 +347,7 @@ public class CreateAccounts extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0)

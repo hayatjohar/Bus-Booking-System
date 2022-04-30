@@ -35,7 +35,7 @@ public class AdminFram extends javax.swing.JFrame {
 
         BttnLogout.setBackground(new java.awt.Color(193, 222, 252));
         BttnLogout.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
-        BttnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        BttnLogout.setForeground(new java.awt.Color(94, 0, 8));
         BttnLogout.setText("Logout");
         BttnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,7 +45,7 @@ public class AdminFram extends javax.swing.JFrame {
 
         BttnBack.setBackground(new java.awt.Color(193, 222, 252));
         BttnBack.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
-        BttnBack.setForeground(new java.awt.Color(255, 255, 255));
+        BttnBack.setForeground(new java.awt.Color(94, 0, 8));
         BttnBack.setText("Back");
         BttnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,9 +54,11 @@ public class AdminFram extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(94, 0, 8));
         jLabel2.setText("Bus Table :");
 
         jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(94, 0, 8));
         jLabel5.setText("Booking Table :");
 
         BusTable.setBackground(new java.awt.Color(204, 229, 237));
@@ -98,6 +100,7 @@ public class AdminFram extends javax.swing.JFrame {
         jScrollPane4.setViewportView(BookingTable);
 
         jLabel3.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(94, 0, 8));
         jLabel3.setText("Customer Table :");
 
         CustomerTable.setBackground(new java.awt.Color(204, 229, 237));
@@ -120,6 +123,7 @@ public class AdminFram extends javax.swing.JFrame {
         jScrollPane2.setViewportView(CustomerTable);
 
         jLabel6.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(94, 0, 8));
         jLabel6.setText("Travel ScheduleTable Table :");
 
         Travel_ScheduleTable.setBackground(new java.awt.Color(204, 229, 237));

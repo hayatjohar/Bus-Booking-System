@@ -64,13 +64,13 @@ public class UserLogin extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
 
-        jPanel54.setBackground(new java.awt.Color(255, 184, 190));
+        jPanel54.setBackground(new java.awt.Color(255, 201, 184));
         jPanel54.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel54.setForeground(new java.awt.Color(51, 102, 255));
         jPanel54.setToolTipText("");
 
         jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 28)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(94, 0, 8));
         jLabel5.setText("Bus Ticket Booking System");
 
         javax.swing.GroupLayout jPanel54Layout = new javax.swing.GroupLayout(jPanel54);
@@ -94,6 +94,7 @@ public class UserLogin extends javax.swing.JFrame {
 
         BttnLogin.setBackground(new java.awt.Color(184, 255, 225));
         BttnLogin.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        BttnLogin.setForeground(new java.awt.Color(94, 0, 8));
         BttnLogin.setText("Login");
         BttnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,10 +109,12 @@ public class UserLogin extends javax.swing.JFrame {
         });
 
         LblPassword.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        LblPassword.setForeground(new java.awt.Color(94, 0, 8));
         LblPassword.setText("Password");
 
         BttnCreateAccount.setBackground(new java.awt.Color(255, 184, 190));
         BttnCreateAccount.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        BttnCreateAccount.setForeground(new java.awt.Color(94, 0, 8));
         BttnCreateAccount.setText("Dont have account ? Register");
         BttnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +124,7 @@ public class UserLogin extends javax.swing.JFrame {
 
         BttnReset.setBackground(new java.awt.Color(184, 255, 225));
         BttnReset.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        BttnReset.setForeground(new java.awt.Color(94, 0, 8));
         BttnReset.setText("Reset");
         BttnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +139,7 @@ public class UserLogin extends javax.swing.JFrame {
         LblUsername.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(94, 0, 8));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Username");
 
@@ -142,6 +147,7 @@ public class UserLogin extends javax.swing.JFrame {
 
         lblLogin.setBackground(new java.awt.Color(255, 255, 255));
         lblLogin.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(94, 0, 8));
         lblLogin.setText("Login Form");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -209,11 +215,13 @@ public class UserLogin extends javax.swing.JFrame {
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(94, 0, 8));
         jLabel6.setText("Book your ticket now!");
         jLabel6.setAutoscrolls(true);
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Palatino Linotype", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(94, 0, 8));
         jLabel4.setText("Travels Online ");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -242,14 +250,14 @@ public class UserLogin extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

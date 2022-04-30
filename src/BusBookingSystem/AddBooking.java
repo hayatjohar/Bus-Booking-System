@@ -93,9 +93,11 @@ public class AddBooking extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(94, 0, 8));
         jLabel2.setText("Startring point");
 
         jLabel3.setFont(new java.awt.Font("Palatino Linotype", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(94, 0, 8));
         jLabel3.setText("Depart Date");
 
         DepartDate.setBackground(new java.awt.Color(255, 225, 184));
@@ -103,6 +105,7 @@ public class AddBooking extends javax.swing.JFrame {
         StartringPoint.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jerusalem", "Ramallah", "Acre", "Tulkarm", "Nablus", "Haifa", "Hebron", "Gaza", "Jaffa", "Jericho", "Bethlehem", "Nazareth", "Jenin", "Qalqilya", "Tubas" }));
 
         jLabel5.setFont(new java.awt.Font("Palatino Linotype", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(94, 0, 8));
         jLabel5.setText("Distination");
 
         Distination.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jerusalem", "Ramallah", "Acre", "Tulkarm", "Nablus", "Haifa", "Hebron", "Gaza", "Jaffa", "Jericho", "Bethlehem", "Nazareth", "Jenin", "Qalqilya", "Tubas" }));
@@ -113,6 +116,7 @@ public class AddBooking extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Palatino Linotype", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(94, 0, 8));
         jLabel4.setText("Depart time");
 
         Travel_ScheduleTable.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -151,6 +155,7 @@ public class AddBooking extends javax.swing.JFrame {
 
         BttnSearch.setBackground(new java.awt.Color(193, 222, 252));
         BttnSearch.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        BttnSearch.setForeground(new java.awt.Color(94, 0, 8));
         BttnSearch.setText("Search");
         BttnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,6 +276,7 @@ public class AddBooking extends javax.swing.JFrame {
 
         BttnLogout.setBackground(new java.awt.Color(255, 184, 190));
         BttnLogout.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        BttnLogout.setForeground(new java.awt.Color(94, 0, 8));
         BttnLogout.setText("Logout");
         BttnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,6 +286,7 @@ public class AddBooking extends javax.swing.JFrame {
 
         BttnMyBooking.setBackground(new java.awt.Color(193, 222, 252));
         BttnMyBooking.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        BttnMyBooking.setForeground(new java.awt.Color(94, 0, 8));
         BttnMyBooking.setText("My Booking");
         BttnMyBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,9 +316,11 @@ public class AddBooking extends javax.swing.JFrame {
         );
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(94, 0, 8));
         jLabel7.setText("Welcome");
 
         customer_name.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        customer_name.setForeground(new java.awt.Color(94, 0, 8));
         customer_name.setText("User name");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -354,7 +363,7 @@ public class AddBooking extends javax.swing.JFrame {
         jPanel54.setToolTipText("");
 
         jLabel8.setFont(new java.awt.Font("Palatino Linotype", 1, 28)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(94, 0, 8));
         jLabel8.setText("Bus Ticket Booking System");
 
         javax.swing.GroupLayout jPanel54Layout = new javax.swing.GroupLayout(jPanel54);

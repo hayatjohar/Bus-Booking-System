@@ -71,17 +71,22 @@ public class AdminPanel extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 229, 237));
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setForeground(new java.awt.Color(94, 0, 8));
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(94, 0, 8));
         jLabel2.setText("Bus ID :");
 
         jLabel3.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(94, 0, 8));
         jLabel3.setText("Bus type :");
 
         jLabel5.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(94, 0, 8));
         jLabel5.setText("plate number :");
 
         jLabel6.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(94, 0, 8));
         jLabel6.setText("Total seats :");
 
         total_seats.addActionListener(new java.awt.event.ActionListener() {
@@ -91,12 +96,15 @@ public class AdminPanel extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(94, 0, 8));
         jLabel4.setText("Driver name :");
 
         jLabel7.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(94, 0, 8));
         jLabel7.setText("Destination :");
 
         jLabel8.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(94, 0, 8));
         jLabel8.setText("Starting point :");
 
         StartringPoint.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jerusalem", "Ramallah", "Acre", "Tulkarm", "Nablus", "Haifa", "Hebron", "Gaza", "Jaffa", "Jericho", "Bethlehem", "Nazareth", "Jenin", "Qalqilya", "Tubas" }));
@@ -114,16 +122,20 @@ public class AdminPanel extends javax.swing.JFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(94, 0, 8));
         jLabel9.setText("Depart date :");
 
         jLabel10.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(94, 0, 8));
         jLabel10.setText("Depart time :");
 
         jLabel11.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(94, 0, 8));
         jLabel11.setText("Ticket price :");
 
         AddBus.setBackground(new java.awt.Color(184, 255, 225));
         AddBus.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        AddBus.setForeground(new java.awt.Color(94, 0, 8));
         AddBus.setText("Add Bus");
         AddBus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,6 +241,7 @@ public class AdminPanel extends javax.swing.JFrame {
 
         Bttnlogout.setBackground(new java.awt.Color(219, 209, 218));
         Bttnlogout.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        Bttnlogout.setForeground(new java.awt.Color(94, 0, 8));
         Bttnlogout.setText("Logout");
         Bttnlogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,6 +251,7 @@ public class AdminPanel extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(219, 209, 218));
         jButton1.setFont(new java.awt.Font("Palatino Linotype", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(94, 0, 8));
         jButton1.setText("Display All Tables");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,9 +259,9 @@ public class AdminPanel extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Palatino Linotype", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Palatino Linotype", 1, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(94, 0, 8));
         jLabel1.setText("Welcome Admin");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
