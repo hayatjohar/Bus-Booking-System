@@ -165,7 +165,6 @@ public class AddBooking extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -184,7 +183,8 @@ public class AddBooking extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Distination, 0, 107, Short.MAX_VALUE)
                             .addComponent(DepartTime)))
-                    .addComponent(BttnSearch))
+                    .addComponent(BttnSearch)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -233,13 +233,21 @@ public class AddBooking extends javax.swing.JFrame {
         jScrollPane5.setViewportView(Travel_Schedule_ListTable);
         if (Travel_Schedule_ListTable.getColumnModel().getColumnCount() > 0) {
             Travel_Schedule_ListTable.getColumnModel().getColumn(0).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(0).setHeaderValue("Travel ID");
             Travel_Schedule_ListTable.getColumnModel().getColumn(1).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(1).setHeaderValue("Bus ID");
             Travel_Schedule_ListTable.getColumnModel().getColumn(2).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(2).setHeaderValue("Starting Point");
             Travel_Schedule_ListTable.getColumnModel().getColumn(3).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(3).setHeaderValue("Destination");
             Travel_Schedule_ListTable.getColumnModel().getColumn(4).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(4).setHeaderValue("Depart Time");
             Travel_Schedule_ListTable.getColumnModel().getColumn(5).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(5).setHeaderValue("Depart Date");
             Travel_Schedule_ListTable.getColumnModel().getColumn(6).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(6).setHeaderValue("Remaining Seats");
             Travel_Schedule_ListTable.getColumnModel().getColumn(7).setResizable(false);
+            Travel_Schedule_ListTable.getColumnModel().getColumn(7).setHeaderValue("Ticket Price");
         }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -248,7 +256,7 @@ public class AddBooking extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -314,8 +322,8 @@ public class AddBooking extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
@@ -381,7 +389,7 @@ public class AddBooking extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1337, 522));
+        setSize(new java.awt.Dimension(1376, 522));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
