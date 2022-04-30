@@ -444,7 +444,7 @@ public class AddBooking extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e);
             }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Add date before search");
+            JOptionPane.showMessageDialog(null, "Can't Search with Null Values");
         }
         
     }//GEN-LAST:event_BttnSearchActionPerformed
